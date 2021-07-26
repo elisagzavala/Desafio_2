@@ -1,0 +1,32 @@
+    <div class="card m-5">
+        <h2 class="display-4 card-header">
+            <?php if ($id) : ?>
+                <?= "Editar " ?> [<span class="text-muted"><?= $controller_name ?>: <?= $id ?></span>]
+            <?php else : ?>
+                <?= "Crear Nuevo: " ?> <span class="text-muted"> <?= $controller_name ?> </span>
+            <?php endif ?>
+        </h2>
+        <div class="card-body">
+
+            <?= Form::open() ?>
+            <?php foreach ($data->items[0]->fields as $key => $field) : ?>
+                <?php if ($field[0] != '_') : ?>
+                    <div class="form-group">
+                        <label class="form-label"> <?= $field ?></label>
+                        <input type="text" class="form-control" value="">
+                    </div>
+                <?php endif ?>
+            <?php endforeach ?>
+            <div class="row">
+                <div class='col-md-6'>
+                    <?= Form::submit('Enviar', "class='btn btn-primary btn-block'") ?>
+                </div>
+
+                <div class="col-md-6">
+                    <?= Form::button('Cancelar', "class='btn btn-danger btn-block' ") ?>
+                </div>
+            </div>
+            <?= Form::close() ?>
+        </div>
+
+    </div>

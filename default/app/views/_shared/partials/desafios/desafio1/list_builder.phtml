@@ -1,0 +1,39 @@
+<div class="card m-5">
+    <h2 class="display-4 card-header">
+        Listado de <span class="text-muted"><?= $controller_name ?></span>
+    </h2>
+    <div class="card-body table-responsive">
+        <table class="table table-striped table-hover table-inverse  text-center">
+            <thead class="thead-dark">
+                <tr>
+                    <?php foreach ($data->items[0]->fields as $key => $field) : ?>
+                        <?php if ( $field[0] != '_' ) : ?>
+                            <th>
+                                <?= $field ?>
+                            </th>
+                        <?php endif ?>
+                    <?php endforeach ?>
+                    <th>Opciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php foreach ($data->items as $key => $item) : ?>
+                    <tr>
+                        <?php foreach ($item->fields as $key => $field) : ?>
+                            <?php if ( $field[0] != '_' ) : ?>
+                                <td>
+                                    <?= $item->$field ?>
+                                </td>
+                            <?php endif ?>
+                        <?php endforeach ?>
+                        <td>
+                            <?= Html::linkAction("detalles/$item->id", 'Detalles', "class='btn btn-success ' ") ?>
+                            <?= Html::linkAction("editar/$item->id", 'Editar', "class='btn btn-warning ' ") ?>
+                            <?= Html::linkAction("borrar/$item->id", 'Borrar', "class='btn btn-danger ' ") ?>
+                        </td>
+                    </tr>
+                <?php endforeach ?>
+            </tbody>
+        </table>
+    </div>
+</div>

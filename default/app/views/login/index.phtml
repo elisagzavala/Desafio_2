@@ -1,0 +1,21 @@
+
+<h2>Bienvenido,registrate</h2>
+
+<?= View::content()?>
+
+<?= Form::open() ?>
+
+<div class = "form-group">
+    <label for="">Usuario</label>
+    <?= Form::input('text','nombre',"'class=form-control'") ?>  
+</div>
+
+<div class = "form-group">
+    <label for="">Contrasena</label>
+    <?= Form::input('password','pass',"'class=form-control'") ?>  
+</div>
+
+ <?= Form::submit('enviar',"'class=btn btn-primary'") ?>
+
+<?= Form::close() ?>
+
